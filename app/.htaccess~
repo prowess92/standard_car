@@ -1,0 +1,18 @@
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName bicomalawi.org
+
+php_value post_max_size 60M
+php_value upload_max_filesize 60M
+php_value display_errors OFF
+display_startup_errors OFF

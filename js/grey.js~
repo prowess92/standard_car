@@ -1,0 +1,23 @@
+
+$(function(){
+	$("#tile-full").hide();
+	$("#report").click(function(evt){
+		$("#report-desc").hide();
+		$("#youth").hide();
+		$("#main_content").css("height","780px");
+		
+		$("#tile-full").show();
+		$("#report").click(function(evt){
+		$("#report-desc").show();
+		$("#youth").show();
+		
+		$("#main_content").css("height","660px");
+		
+		$("#tile-full").hide();
+		
+		evt.preventDefault();
+			})
+		evt.preventDefault();
+			})
+	})
+

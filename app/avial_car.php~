@@ -1,0 +1,55 @@
+<ul>
+<?php 
+session_start(); 
+
+	require('../scripts/defaults.php');
+    $connect = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('cant connect to mysql: '.mysql_error());
+$db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_error());
+
+	$d="SELECT * FROM `cars` WHERE `car_id` NOT IN (SELECT `car_id` FROM `bookings`)";
+	$e=mysql_query($d,$connect);
+	while($f=mysql_fetch_array($e)){
+        	echo "<li><a id='car".$f['car_id']."' href='#'>".$f['make']."&nbsp;".$f['model']."&nbsp;registration number&nbsp;".$f['reg_num']."</a></li>";
+		$car_label = "<label>you selected&nbsp;".$f['make']."&nbsp;".$f['model']."&nbsp;registration number&nbsp;".$f['reg_num']."</label>";
+		$select_car = '<input type="hidden" name="car_id" value="'.$f['car_id'].'" />';
+		echo "<li id='blank'>&nbsp</li>\n";
+?>
+		<script>
+		$(document).ready(function(){
+			$('#car<?php echo $f["car_id"]; ?>').click(function(){
+			$('#free_car').html('<?php echo $car_label."".$select_car; ?>');
+			$('input#book').show();
+			return false;
+			});
+		});
+		</script>
+<?php
+		}
+
+
+	$q="SELECT `car_id` FROM `bookings` WHERE `status` = 'pending' and `date_return` < '$start_date'";
+	$r=mysql_query($q,$connect);
+	while($s=mysql_fetch_array($r)){
+                $car_id = $s['car_id'];
+        	$a="SELECT * FROM `cars` WHERE `car_id` = '$car_id'";
+		$b=mysql_query($a,$connect);
+		while($c=mysql_fetch_array($b)){
+	        	echo "<li><a id='car".$c['car_id']."' href='#'>".$c['make']."&nbsp;".$c['model']."&nbsp;registration number&nbsp;".$c['reg_num']."</a></li>";
+			$car_label = "<label>you selected&nbsp;".$c['make']."&nbsp;".$c['model']."&nbsp;registration number&nbsp;".$c['reg_num']."</label>";
+			$select_car = '<input type="hidden" name="car_id" value="'.$c['car_id'].'" />';
+		echo "<li id='blank'>&nbsp</li>\n";
+?>
+		<script>
+		$(document).ready(function(){
+			$('#car<?php echo $f["car_id"]; ?>').click(function(){
+			$('#free_car').html('<?php echo $car_label."".$select_car; ?>');
+			$('input#book').show();
+			return false;
+			});
+		});
+		</script>
+<?php
+		}
+        }
+?>
+</ul>

@@ -1,0 +1,67 @@
+<?php
+ob_start();
+session_start();
+require('defaults.php');
+//database connection 
+ $connect = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('cant connect to mysql: '.mysql_error());
+$db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_error());
+ 
+ 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+ //form variables
+$fname = $_POST['fname'];
+$sname = $_POST['sname'];
+$sname = $_POST['role'];
+$passwd = $_POST['passwd'];
+$role = $_POST['role'];
+if ($role  == 'admin'){
+    $privileges = 'admin';   
+   }
+else{
+    $privileges = 'user';
+}
+
+
+$username = strtolower($_POST['fname'].'.'.$_POST['sname']);
+
+//validation
+if($fname == ''){
+	$_SESSION['fname'] = "<span style='color:#d85303; line-height:18px;'>Enter User's First Name</span><br />";
+	$error = "yes";
+	}
+if ($sname == ''){
+	$_SESSION['sname'] = "<span style='color:#d85303; line-height:18px;'>Enter User's Surname</span><br />";
+	$error = "yes";
+	}
+if ($role == ''){
+	$_SESSION['role'] = "<span style='color:#d85303; line-height:18px;'>Select User's Role</span><br />";
+	$error = "yes";
+	}
+if ($passwd == ''){
+	$_SESSION['passwd'] = "<span style='color:#d85303; line-height:18px;'>Enter User's Password</span><br />";
+	$error = "yes";
+	}
+
+//check if any errors
+if ($error == ''){
+
+//insert member registration info 
+$insert_member = "INSERT INTO `staff` (`firstname`, `surname`, `username`, `role`) VALUES ('$fname', '$sname', '$username', '$role');";
+mysql_query($insert_member,$connect);
+ 
+$q="INSERT INTO `login` (`username`, `password`, `privileges`) VALUES ('$username', '$passwd', '$privileges');";
+mysql_query($q,$connect);
+
+$r="INSERT INTO `user_log` (`username`, `times`) VALUES ('$username', '0');";
+mysql_query($r,$connect); 
+ 
+$_SESSION['user_added']= "<h2>User&nbsp;<span style='color:#0e8b1c'>".$username."</span>&nbsp;Successfully Added</h2>";
+header('location:../app/');
+exit;
+}
+else{
+	header('location:../app/add_user_view.php');
+}
+}
+?>
+
