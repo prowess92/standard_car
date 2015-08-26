@@ -272,11 +272,7 @@ if ($_SESSION['privileges'] == "admin"){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span><a href="#" id="menu_users"><img src="../image/user_icon.png" alt='User Management' /></a></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span><a href="#" id="menu_resources">Resources</a></span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span><a href="#" id="menu_vacancies">Vacancies</a></span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span><a href="#" id="menu_reports">Reports</a></span>
+
 </div>
 </div>
 </div>

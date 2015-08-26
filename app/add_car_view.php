@@ -79,23 +79,14 @@ $username = $_SESSION['username'];
 	    <li><a href="show_publication_view.php">publications list</a></li>
 	</ul> -->
     </li>
-    <li><a href="#">Resources</a>
-	<ul>
-	    <li><a href="add_resource_view.php">upload resource</a></li>
-	    <li><a href="show_resource_view.php">resources list</a></li>
-	</ul>
+    <li><a href="#">&nbsp;</a>
+	
     </li>
-    <li><a href="#">Vacancies</a>
-       <ul>
-	    <li><a href="add_vacancy_view.php">add vacancy</a></li>
-	    <li><a href="show_vacancy_view.php">vacancies list</a></li>
-	</ul>
+    <li><a href="#">&nbsp;</a>
+       
     </li>
-    <li><a href="#">Reports</a>
-	<ul>
-	    <li><a href="add_report_view.php">upload report</a></li>
-	    <li><a href="show_report_view.php">reports list</a></li>
-	</ul>
+    <li><a href="#">&nbsp;</a>
+	
     </li>	
     <li id="minus" style="width:261px">&nbsp;</li>
 </ul>
