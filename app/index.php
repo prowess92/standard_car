@@ -12,7 +12,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>cAR BOOKER</title>
+<title>CAR BOOKER</title>
 <link rel="icon" href="../image/bico_icon.ico" type="image/x-icon" />
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" charset="utf-8" />
@@ -29,32 +29,21 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 		$("#menu_resources_list").hide();
 		$("#menu_vacancies_list").hide();
 		$("#menu_reports_list").hide();
-		$("#user_options").hide();
+		$("#index_cars_list").hide();
 		
-		/*user management dropdown*/
-		$(function user_display(){
-			$("#management").click(function(){
+		
+	
+		/*user cars_list dropdown*/
+		$(function cars_display(){
+			$("#cars_list").click(function(){
 				$("#options_blinder").css("left", "-20");
 				$("#options_blinder").css("z-index", "549");
 				$("#options_blinder").css("width","120%");
 				$("#options_blinder").css("height", "550");
 				$("#options_blinder").css("top","-30");
-				$("#options_blinder").css("opacity", "0.3");
+				$("#options_blinder").css("opacity", "0.7");
 				$("#options_blinder").show();
-				$("#user_options").show("slow", "swing");
-
-				$("#management").click(function(){
-					$("#options_blinder").css("z-index", "50");
-					$("#options_blinder").css("left", "0");
-					$("#options_blinder").css("width","100%");
-					$("#options_blinder").css("height", "400");
-					$("#options_blinder").css("top", "75");
-					$("#options_blinder").css("opacity","0.5");
-					$("#options_blinder").hide();
-					$("#user_options").hide();
-					$("#user_options").stop(true);
-					user_display();
-				});
+				$("#index_cars_list").show();
 			});
 		});
 		/*----       ////     ----*/
@@ -139,8 +128,24 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 					index_list();
 				});
 			});
+
+			$('#car_close').click(function(){
+				$("#options_blinder").css("z-index", "50");
+				$("#options_blinder").show();
+				$("#menu_cars_list").show("linear");
+				$("#menu_cars").css("z-index", "51");
+				$("#index_cars_list").hide();
+				$("#menu_cars").click(function(){
+					$("#options_blinder").hide();
+					$("#menu_cars_list").hide();
+					$("#menu_cars").css("z-index", "48");
+					$("#menu_cars_list").stop(true);
+					index_list();
+				});	
+			});
 		});
 		/*----      ////       ----*/
+		
   	});
 </script>
 </head>
@@ -172,9 +177,37 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 	width:1024;
 	height:20;
 	overflow:hidden;
-}
+	}
 #main_header{top:30;}
 #top-header{top:55;z-index:500;}
+#index_cars_list{
+	z-index:600;
+	top:50;
+	padding-left:10;
+	position:absolute;
+        display:block;
+        width:980;
+	height:400;
+	border:1px dotted #000;
+	background:#fff;
+	border-radius:10px;
+	overflow:auto;
+	}
+#car_close a{
+	position:absolute;
+	top:370;
+	left:880;
+	display:block;
+	background-color: #fff;
+	border: 1px solid #3f4fd2;
+	border-radius: 5px;
+	padding: 3px 35px 3px 35px;
+    	text-decoration: none;
+    	color: #3f4fd2;
+    	font:13px Comic Sans MS, "cursive";
+    	text-align: center;
+	}
+#car_close a:active{border: 2px solid #3f4fd2;}
 </style>
 <body>
 
@@ -192,16 +225,6 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 <div id="top-header">
 <span><a href="../scripts/logout.php" style="color:red;">logout</a></span>
 </div>
-<div id="user_options">
-<ul>
-<?php
-if ($_SESSION['privileges'] == "admin"){
-	echo '<li><a href="add_user_view.php">Add new user</a></li>';
-	}
-?>
-<li><a href="edit_user_view.php">Edit login details</a></li>
-</ul>
-</div>
 <div id="logo">
 	  <a id="logo_link" href="../app/"><img src="../image/standard_bank.png" alt="Standard Bank" ></a>
 	  </div>
@@ -212,6 +235,10 @@ if ($_SESSION['privileges'] == "admin"){
 <div id="main_content">
 <div id="container1"> 
 <div id="left-panel" style="width:990;">
+<div id='index_cars_list'>
+<?php require('cars_list.php'); ?>
+<span id="car_close"><a href="#" >finish</a></span>
+</div>
 <?php
 if (isset($_SESSION['user_added'])){
     echo $_SESSION['user_added'];
@@ -225,7 +252,7 @@ if (isset($_SESSION['user_added'])){
 <div id="menu_cars_list">
 <span><a href="add_car_view.php">create a car</a></span>
 <span id="blank">&nbsp;</span>
-<span><a href="show_car_view.php">cars list</a></span>
+<span><a id="cars_list" href="#">cars list</a></span>
 </div>
 <!-- booking popup -->
 <div id="menu_booking_list">
@@ -270,7 +297,7 @@ if ($_SESSION['privileges'] == "admin"){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span><a href="#" id="menu_booking"><img src="../image/booking_icon.png" alt='Bookings' /></a></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span><a href="#" id="menu_users"><img src="../image/user_icon.png" alt='User Management' /></a></span>
+<span><a href="#" id="menu_users"><img src="../image/user_icon.png" alt='User cars_list' /></a></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>

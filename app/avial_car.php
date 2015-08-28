@@ -6,7 +6,7 @@ session_start();
     $connect = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('cant connect to mysql: '.mysql_error());
 $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_error());
 
-	$d="SELECT * FROM `cars` WHERE `car_id` NOT IN (SELECT `car_id` FROM `bookings`)";
+	$d="SELECT * FROM `cars` WHERE `car_id` NOT IN (SELECT `car_id` FROM `bookings`) ORDER BY `make`";
 	$e=mysql_query($d,$connect);
 	while($f=mysql_fetch_array($e)){
         	echo "<li><a id='car".$f['car_id']."' href='#'>".$f['make']."&nbsp;".$f['model']."&nbsp;registration number&nbsp;".$f['reg_num']."</a></li>";
@@ -29,7 +29,7 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
      $start_date = mktime('00', '00', '00', $_GET['month'], $_GET['day'], $_GET['year']);
      $start_date_final = date("Y-m-d H:i:s", $start_date);
      
-	$q="SELECT * FROM cars a  INNER JOIN bookings b ON b.car_id = a.car_id WHERE b.status = 'pending' and b.date_return < TIMESTAMP('$start_date_final') ORDER BY a.car_id";
+	$q="SELECT * FROM cars a  INNER JOIN bookings b ON b.car_id = a.car_id WHERE b.status = 'pending' and b.date_return < TIMESTAMP('$start_date_final') ORDER BY a.make";
 	$r=mysql_query($q,$connect);
     $query_length = mysql_num_rows($r);
     $counter = 0;

@@ -147,7 +147,7 @@ $('#end_year').click(function(){
 <div id="left-panel">
 <div id="options_blinder"></div>
 <div id='avail_cars'>
-<h2>Available vehicles</h2>
+<h3>Available vehicles</h3>
 <div id='avail_cars_list'></div>
 </div>
 <div style="width:45%;border:1px dotted #000;height:480;overflow:auto;display:block;">

@@ -76,9 +76,9 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
             $b = mysql_query($a, $connect);
             $c = mysql_fetch_array($b);
             $district = $c['name'];
-			$_SESSION['success']="<div id='notifier' style='display:block; border:1px solid #C4C9F1; width:99%; text-align: center;'>Booking for journey to <span style='color:#172AC8;'><br />".$district."&nbsp;by&nbsp;".$full_name."&nbsp;has been successfully made</div><script>$(document).ready(function(){$(#notifier).hide(500);});</script>";			
+            
+			$_SESSION['success']="<div id='notifier' style='display:block; border:1px solid #C4C9F1; width:99%; text-align: center;'>Booking for journey to <span style='color:#172AC8;'><br />".$district."&nbsp;by&nbsp;".$full_name."&nbsp;has been successfully made</div>".$js_inject;			
 			header('location:../app/add_booking_view.php');
-           
 		}
            
 		

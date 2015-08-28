@@ -105,8 +105,8 @@ form input[type="password"]{width:300;}
 <div id="container1"> 
 <div id="left-panel">
     <h2>new user account</h2>
+    <div style="width:100%;border:1px dotted #000;height:420;overflow:auto;display:block;padding:10;">
     <form action="../scripts/add_user.script.php" method="post" style="width:100%">
-    <fieldset>
     <label>First Name:&nbsp;
     <?php if(isset($_SESSION['fname'])){
 							echo $_SESSION['fname'];
@@ -143,8 +143,8 @@ form input[type="password"]{width:300;}
     <br />
     <input type="submit" name="submit" value="add user" class="more_button" style="display:inline-block"/>
     <input type="reset" name="reset" value="clear" class="more_button_clear" style="display:inline-block"/>
-    </fieldset>
-  </form>
+   </form>
+</div>
 </div>
 </div>
 </div>

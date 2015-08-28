@@ -705,7 +705,7 @@ ul#cssMenu a:hover ul{
 	border: 1px solid #3f4fd2;
 	border-radius: 5px;
 	/*box-shadow: inset 0px 0px 0px 1px #1d82e8, 0 1px 1px #1d82e8;*/
-	padding: 2px 30px 2px 30px;
+	padding: 3px 35px 3px 35px;
     text-decoration: none;
     color: #3f4fd2;
     font:13px Comic Sans MS, "cursive";
@@ -1047,7 +1047,7 @@ ul#cssMenu a:hover ul{
 	background:#fff;
 	opacity:0.9;
 	display:block;
-	width:170;
+	width:100%;
 	padding:2 0 2 0;
 	border-bottom:1px dotted #000;
 	text-align:center;
@@ -1056,13 +1056,14 @@ ul#cssMenu a:hover ul{
 	opacity:0.2;
 	}
 #menu_cars_list span a{
+	display:block;
 	position:relative;
-	width:170;
+	width:100%;
 	color:#000;
 	}
 #menu_cars_list span:hover{
 	background:#917c9a;
-	width:170;
+	width:100%;
 	}
 #menu_cars_list #blank:hover{
 	background:#fff;
@@ -1079,7 +1080,7 @@ ul#cssMenu a:hover ul{
 	background:#fff;
 	opacity:0.9;
 	display:block;
-	width:170;
+	width:100%;
 	padding:2 0 2 0;
 	border-bottom:1px dotted #000;
 	text-align:center;
@@ -1088,13 +1089,14 @@ ul#cssMenu a:hover ul{
 	opacity:0.2;
 	}
 #menu_booking_list span a{
+	display:block;
 	position:relative;
-	width:170;
+	width:100%;
 	color:#000;
 	}
 #menu_booking_list span:hover{
 	background:#917c9a;
-	width:170;
+	width:100%;
 	}
 #menu_booking_list #blank:hover{
 	background:#fff;
@@ -1240,11 +1242,12 @@ ul#cssMenu a:hover ul{
 	}
 #options{
         position:absolute;
-	width:100%;
+	width:500;
 	border:1px dashed #808080;
 	height:400;
 	overflow:hidden;
 	border-radius:5;
+	border-radius:2px;
 	}
 #options span{
         margin: 90px 15px 30px 15px;
@@ -1297,7 +1300,7 @@ ul#cssMenu a:hover ul{
 table{overflow:hidden; margin-left:-5;}
 table tr{
 	display:block;
-	background: #EBEBEB;
+	background:#E5E7F9;
 	color: #444;
 	text-decoration: none;
 	width:100%;		
@@ -1306,12 +1309,12 @@ table #blank{
 	background:#fff;
       }
 table tr td{
-	text-align:center;
+	text-align:left;
 	width:240;
 	font:11px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;	
 	}
 table tr th{
-	text-align:center;
+	text-align:left;
 	display:inline-block;
 	width:241;
 	}

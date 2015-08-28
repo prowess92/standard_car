@@ -105,8 +105,8 @@ $username = $_SESSION['username'];
 <div id="container1"> 
 <div id="left-panel">
       <h2>new car</h2>
+<div style="width:100%;border:1px dotted #000;height:420;overflow:auto;display:block;padding:10;">
     <form enctype="multipart/form-data" action="../scripts/add_car.php" method="post" style="width:100%">
-    <fieldset>
     <?php
                       	if(isset($_SESSION['success'])){
 							echo $_SESSION['success'].'<br />';
@@ -183,8 +183,8 @@ $username = $_SESSION['username'];
     <input type="hidden" name="current_user" value="<?php echo $_SESSION['id']; ?>" />
     <br />
     <input type="submit" name="submit" value="add" class="more_button" style="display:inline-block"/>
-    </fieldset>
   </form> 
+</div>
 </div>
 </div>
 </div>
