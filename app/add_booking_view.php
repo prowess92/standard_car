@@ -120,16 +120,7 @@ $('#end_year').click(function(){
 	    <li><a href="show_publication_view.php">publications list</a></li>
 	</ul> -->
     </li>
-    <li><a href="#">&nbsp;</a>
-	
-    </li>
-    <li><a href="#">&nbsp;</a>
-       
-    </li>
-    <li><a href="#">&nbsp;</a>
-	
-    </li>	
-    <li id="minus" style="width:261px">&nbsp;</li>
+    <li id="minus" style="width:567px">&nbsp;</li>
 </ul>
 </div>
 </div>

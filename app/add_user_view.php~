@@ -80,16 +80,7 @@ form input[type="password"]{width:300;}
 	    <li><a href="show_publication_view.php">publications list</a></li>
 	</ul> -->
     </li>
-    <li><a href="#">&nbsp;</a>
-	
-    </li>
-    <li><a href="#">&nbsp;</a>
-       
-    </li>
-    <li><a href="#">&nbsp;</a>
-	
-    </li>	
-    <li id="minus" style="width:258px">&nbsp;</li>
+   <li id="minus" style="width:567px">&nbsp;</li>
 </ul>
 </div>
 </div>

@@ -1310,13 +1310,12 @@ table #blank{
       }
 table tr td{
 	text-align:left;
-	width:240;
-	font:11px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;	
+	width:170;
+	font:11px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	}
 table tr th{
 	text-align:left;
-	display:inline-block;
-	width:241;
+	width:170;
 	}
 table tr #title{
 	font-size:17;

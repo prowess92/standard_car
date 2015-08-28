@@ -112,25 +112,7 @@ form input[type="password"]{width:300;}
 	    <li><a href="show_publication_view.php">publications list</a></li>
 	</ul> -->
     </li>
-    <li><a href="#">Resources</a>
-	<ul>
-	    <li><a href="add_resource_view.php">upload resource</a></li>
-	    <li><a href="show_resource_view.php">resources list</a></li>
-	</ul>
-    </li>
-    <li><a href="#">Vacancies</a>
-       <ul>
-	    <li><a href="add_vacancy_view.php">add vacancy</a></li>
-	    <li><a href="show_vacancy_view.php">vacancies list</a></li>
-	</ul>
-    </li>
-    <li><a href="#">Reports</a>
-	<ul>
-	    <li><a href="add_report_view.php">upload report</a></li>
-	    <li><a href="show_report_view.php">reports list</a></li>
-	</ul>
-    </li>	
-    <li id="minus" style="width:203px">&nbsp;</li>
+    <li id="minus" style="width:567px">&nbsp;</li>
 </ul>
 </div>
 </div>
@@ -148,9 +130,9 @@ form input[type="password"]{width:300;}
 <div id="left-panel">
 <div id="options_blinder"></div>
       <h2>welcome&nbsp;<span style="color:green;font-size:18;"><?php echo $s['firstname'].'&nbsp;'.$s['surname']; ?></span>&nbsp;edit your login details below</h2>
+     <div style="width:100%;border:1px dotted #000;height:420;overflow:auto;display:block;padding:10;">
      <form action="../scripts/edit_user.script.php" method="post" style="width:100%">
-     <fieldset>
-     <?php if(isset($_SESSION['user_added'])){
+      <?php if(isset($_SESSION['user_added'])){
 							echo $_SESSION['user_added'];
 							unset($_SESSION['user_added']);
 							} ?>
@@ -171,8 +153,8 @@ form input[type="password"]{width:300;}
     <input type="password" name="password" id="password" />
     <br />
     <input id="send" type="submit" name="submit" value="edit" class="more_button" style="display:inline-block"/>
-    </fieldset>
     </form>
+</div>
 </div>
 </div>
 </div>
