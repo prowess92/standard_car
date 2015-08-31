@@ -7,25 +7,8 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		
 
-		if(empty($_POST['full_name']) || empty($_POST['phone']) || empty($_POST['email']) || empty($_POST['district']) || empty($_POST['loc_desc']) || empty($_POST['driver']) || empty($_POST['personnel']))
+		if(empty($_POST['district']) || empty($_POST['loc_desc']) || empty($_POST['driver']) || empty($_POST['personnel']))
 		{
-			if(empty($_POST['full_name'])){
-				$_SESSION['full_name'] = "<span style='color:brown;'>Please fill in your full name</span>";
-			}
-			else{
-				$_SESSION['value_full_name'] = $_POST['full_name'];
-        }
-        if(empty($_POST['phone'])){
-				$_SESSION['phone'] = "<span style='color:brown;'>Please fill in your phone number</span>";
-			}
-			else{
-				$_SESSION['value_phone'] = $_POST['phone'];
-			}
-			if(empty($_POST['email']) || empty($_POST['email'])==''){
-				$_SESSION['email'] = "<span style='color:brown;'>Please fill in your email address</span>";
-			}else{
-            $_SESSION['value_email'] = $_POST['email'];    
-            }
             if(empty($_POST['district']) || empty($_POST['district'])==''){
 				$_SESSION['district'] = "<span style='color:brown;'>Please select the district that is your destination</span>";
 			}
@@ -53,19 +36,17 @@
             $end_date_final = date("Y-m-d H:i:s", $end_date);
             
             $car_id = $_POST['car_id'];
-            $full_name = htmlentities($_POST['full_name']);
-            $phone = htmlentities($_POST['phone']);
-            $email =  htmlentities($_POST['email']);
             $district = $_POST['district'];
-            $creator = $_POST['current_user'];
-            $loc_desc = $_POST['loc_desc'];
+            $creator = $_SESSION['id'];
+            
+            $loc_desc = htmlentities($_POST['loc_desc']);
             $driver = $_POST['driver'];
             $personel_num = $_POST['personnel'];
 			
 			$connect = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('cant connect to mysql: '.mysql_error());
 $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_error());
 						
-			$sql = "INSERT INTO bookings (car_id, booker, phone, email, district_id, loc_desc, personnel_num, driver_id, date_use, date_return, created_by, updated_by, status) VALUES ('$car_id', '$full_name', '$phone', '$email', '$district', '$loc_desc', '$personel_num', '$driver', '$start_date_final', '$end_date_final',  '$creator', '$creator', 'pending')";
+			$sql = "INSERT INTO bookings (car_id, created_by, district_id, loc_desc, personnel_num, driver_id, date_use, date_return,  updated_by, status) VALUES ('$car_id',  '$creator', '$district', '$loc_desc', '$personel_num', '$driver', '$start_date_final', '$end_date_final',  '$creator', 'pending')";
 
 			mysql_query($sql,$connect);
 			$new_id = mysql_insert_id($connect);

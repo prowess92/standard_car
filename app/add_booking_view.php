@@ -149,21 +149,7 @@ $('#end_year').click(function(){
 							unset($_SESSION['success']);
 							}
 					  ?>
-    <label>Enter your name (first name and surname):&nbsp;<?php if(isset($_SESSION['full_name'])){
-							echo $_SESSION['full_name'];
-							unset($_SESSION['full_name']);
-							} ?></label>
-    <input style="width:400" type="text" name="full_name" value="<?php echo $_SESSION['value_full_name']; unset($_SESSION['value_full_name']); ?>" />
-    <label>Enter your phone number:&nbsp;<?php if(isset($_SESSION['phone'])){
-							echo $_SESSION['phone'];
-							unset($_SESSION['phone']);
-							} ?></label>
-    <input style="width:400" type="text" name="phone" value="<?php echo $_SESSION['value_phone']; unset($_SESSION['value_phone']); ?>" />
-    <label>Enter your email address:&nbsp;<?php if(isset($_SESSION['email'])){
-							echo $_SESSION['email'];
-							unset($_SESSION['email']);
-							} ?></label>
-    <input style="width:400" type="text" name="email" value="<?php echo $_SESSION['value_email']; unset($_SESSION['value_email']); ?>" />
+    <label style="color:#3f4fd2;">USE FIELDS BELOW TO MAKE A BOOKING</label>
     <label>Destination (select region then district):&nbsp;<?php if(isset($_SESSION['district'])){
 							echo $_SESSION['district'];
 							unset($_SESSION['district']);

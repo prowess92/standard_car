@@ -25,7 +25,12 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 		}else{
 			echo "<td>".$s['ownership']."</td>";
 		}
+		
+		if ($_SESSION['privileges'] == "admin"){
 		echo "<td><a href='../scripts/delete_cars.php?cars_id=".$s['cars_id']."'>delete</a></td>";
+		}else{
+		echo '<td>&nbsp;</td>';
+		}
 		echo "</tr>";  
 		echo "<tr id='blank' ><td colspan='4'>&nbsp</td></tr>";           	
 	}	 

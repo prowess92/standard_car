@@ -30,7 +30,9 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 		$("#menu_vacancies_list").hide();
 		$("#menu_reports_list").hide();
 		$("#index_cars_list").hide();
-		
+		$("#staff_left").hide();
+		$("#staff_right").hide();
+		$("#booking_close").hide();		
 		
 	
 		/*user cars_list dropdown*/
@@ -143,8 +145,35 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 					index_list();
 				});	
 			});
+
+			$('#booking_close').click(function(){
+				$("#options_blinder").css("z-index", "50");
+				$("#options_blinder").show();
+				$("#menu_booking_list").show("linear");
+				$("#menu_booking").css("z-index", "51");
+				$("#staff_left").hide();
+				$("#staff_right").hide();
+				$("#menu_booking").click(function(){
+					$("#options_blinder").hide();
+					$("#menu_booking_list").hide();
+					$("#menu_booking").css("z-index", "48");
+					$("#menu_booking_list").stop(true);
+					index_list();
+				});	
+			});
 		});
 		/*----      ////       ----*/
+		$("#staff_booking").click(function(){
+			$("#options_blinder").css("left", "-20");
+			$("#options_blinder").css("z-index", "549");
+			$("#options_blinder").css("width","120%");
+			$("#options_blinder").css("height", "550");
+			$("#options_blinder").css("top","-30");
+			$("#options_blinder").css("opacity", "0.7");
+			$("#options_blinder").show();
+			$("#staff_left").show();
+			$("#booking_close").show();
+		});
 		
   	});
 </script>
@@ -193,6 +222,43 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 	border-radius:10px;
 	overflow:auto;
 	}
+#staff_left{
+	padding:0;
+	z-index:600;
+	top:50;
+	padding-left:10;
+	position:absolute;
+        display:block;
+        width:450;
+	height:424;
+	border:1px dotted #000;
+	background:#f2f1f0;
+	border-radius:10px;
+	overflow:hidden;
+	}
+#staff_right{
+	z-index:600;
+	top:50;
+	left:500;
+	padding:10;
+	position:absolute;
+        display:block;
+        width:480;
+	height:405;
+	border:1px dotted #000;
+	background:#fff;
+	border-radius:10px;
+	overflow:auto;
+	}
+#staff_right #box{
+	margin-top:20;
+	padding:5;
+	background: #F9F8FE;
+	border:1px dotted #0F0941;
+	display:block;
+	width:97%;
+	font:17px/1 “helvetica neue”, helvetica, arial, sans-serif;
+	}
 #car_close a{
 	position:absolute;
 	top:370;
@@ -208,6 +274,88 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
     	text-align: center;
 	}
 #car_close a:active{border: 2px solid #3f4fd2;}
+#booking_close{
+	position:absolute;
+	top:440;
+	left:340;
+	z-index:700;
+	}
+#booking_close a{
+	position:relative;
+	display:block;
+	background-color: #fff;
+	border: 1px solid #3f4fd2;
+	border-radius: 5px;
+	padding: 3px 35px 3px 35px;
+    	text-decoration: none;
+    	color: #3f4fd2;
+    	font:13px Comic Sans MS, "cursive";
+    	text-align: center;
+	}
+#booking_close a:active{border: 2px solid #3f4fd2;}
+#staff_left ol{
+	position:relative;
+	display:block;
+	height:auto;
+	width:100%;
+	counter-reset: li;
+	list-style: none;
+	*list-style: decimal;
+	font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin-bottom: 4em;
+	}
+#staff_left ol ol{
+	margin: 0 0 0 2em;
+	}
+#staff_left ol li{
+	display:block;
+	height:20;
+	margin-top:20;
+	}
+.list-deco a{
+	width:375;
+	position: relative;
+	height:20;
+	display: block;
+	padding: .4em .4em .4em .8em;
+	*padding: .4em;
+	margin: .5em 0 .5em 2.5em;
+	background: #ddd;
+	color: #444;
+	text-decoration: none;
+	transition: all .3s ease-out;		
+	}
+.list-deco a:hover{
+	background: #eee;
+	}
+.list-deco a:before{
+	content: counter(li);
+	counter-increment: li;
+	position: absolute;
+	left: -2.5em;
+	top: 50%;
+	margin-top: -1em;
+	background: #87ceeb;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	text-align: center;
+	font-weight: bold;
+	}
+.list-deco a:after{
+	position: absolute;
+	content: '';
+	border: .5em solid transparent;
+	left: -1em;
+	top: 50%;
+	margin-top: -.5em;
+	transition: all .3s ease-out;
+	}
+.list-deco a:hover:after{
+	left: -.5em;
+	border-left-color: #87ceeb;
+	}
 </style>
 <body>
 
@@ -235,6 +383,12 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 <div id="main_content">
 <div id="container1"> 
 <div id="left-panel" style="width:990;">
+<div id="booking_close"><a href="#" >finish</a></div>
+<div id="staff_left">
+<?php require('bookings_moi.php'); ?>
+</div>
+<div id="staff_right">
+</div>
 <div id='index_cars_list'>
 <?php require('cars_list.php'); ?>
 <span id="car_close"><a href="#" >finish</a></span>
@@ -250,15 +404,34 @@ if (isset($_SESSION['user_added'])){
 <p>&nbsp;</p>
 <!-- cars popup -->
 <div id="menu_cars_list">
+<?php
+if ($_SESSION['privileges'] == "admin"){
+?>
 <span><a href="add_car_view.php">create a car</a></span>
 <span id="blank">&nbsp;</span>
+<?php
+}
+?>
 <span><a id="cars_list" href="#">cars list</a></span>
 </div>
 <!-- booking popup -->
 <div id="menu_booking_list">
+<?php
+if ($_SESSION['privileges'] != "driver"){
+?>
 <span><a href="add_booking_view.php">book a car</a></span>
+<?php }else{ ?>
+<span><a href="add_booking_view.php">assigned bookings</a></span>
+<?php 
+}
+if ($_SESSION['privileges'] == "admin"){
+?>
 <span id="blank">&nbsp;</span>
-<span><a href="show_booking_view.php">bookings list</a></span>
+<span><a id="staff_booking" href="#">bookings list</a></span>
+<?php }else if($_SESSION['privileges'] == "staff"){ ?>
+<span id="blank">&nbsp;</span>
+<span><a id="staff_booking" href="#">my bookings</a></span>
+<?php } ?>
 </div>
 <!-- users popup -->
 <div id="menu_users_list">

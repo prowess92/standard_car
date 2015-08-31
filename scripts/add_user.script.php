@@ -12,40 +12,48 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 $fname = $_POST['fname'];
 $sname = $_POST['sname'];
 $passwd = $_POST['passwd'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
 $role = $_POST['role'];
-if ($role  == 'admin'){
-    $privileges = 'admin';   
-   }
-else{
-    $privileges = 'user';
-}
-
+$privileges = $role;   
 
 $username = strtolower($_POST['fname'].'.'.$_POST['sname']);
 
 //validation
-if($fname == ''){
-	$_SESSION['fname'] = "<span style='color:#d85303; line-height:18px;'>Enter User's First Name</span><br />";
+if(empty($fname)){
+	$_SESSION['fname'] = "<span style='color:brown;'>Please fill in your First Name</span><br />";
 	$error = "yes";
 	}
-if ($sname == ''){
-	$_SESSION['sname'] = "<span style='color:#d85303; line-height:18px;'>Enter User's Surname</span><br />";
+if (empty($sname)){
+	$_SESSION['sname'] = "<span style='color:brown;'>Please fill in your Surname</span><br />";
 	$error = "yes";
 	}
-if ($role == ''){
-	$_SESSION['role'] = "<span style='color:#d85303; line-height:18px;'>Select User's Role</span><br />";
+if (empty($role)){
+	$_SESSION['role'] = "<span style='color:brown;'>Select User's Role</span><br />";
 	$error = "yes";
 	}
-if ($passwd == ''){
-	$_SESSION['passwd'] = "<span style='color:#d85303; line-height:18px;'>Enter User's Password</span><br />";
+if (empty($passwd)){
+	$_SESSION['passwd'] = "<span style='color:brown;'>Please fill in your Password</span><br />";
 	$error = "yes";
 	}
-
+if(empty($phone)){
+				$_SESSION['phone'] = "<span style='color:brown;'>Please fill in your phone number</span>";
+                $error = "yes";
+			}
+			else{
+				$_SESSION['value_phone'] = $_POST['phone'];
+			}
+if(empty($email) || $email == ''){
+				$_SESSION['email'] = "<span style='color:brown;'>Please fill in your email address</span>";
+                $error = "yes";
+			}else{
+            $_SESSION['value_email'] = $_POST['email'];    
+            }
 //check if any errors
 if ($error == ''){
 
 //insert member registration info 
-$insert_member = "INSERT INTO `staff` (`firstname`, `surname`, `username`, `role`) VALUES ('$fname', '$sname', '$username', '$role');";
+$insert_member = "INSERT INTO `staff` (`firstname`, `surname`, `phone`, `email`, `username`, `role`) VALUES ('$fname', '$sname', '$phone', '$email', '$username', '$role');";
 mysql_query($insert_member,$connect);
  
 $q="INSERT INTO `login` (`username`, `password`, `privileges`) VALUES ('$username', '$passwd', '$privileges');";

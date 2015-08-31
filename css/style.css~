@@ -3,11 +3,12 @@
 body{
 	margin:0px; 
 	padding:0px; 
+	/*padding-bottom:40px;*/
 	background:#0317C4;
-	margin-bottom:40px; 
+	/*margin-bottom:40px;*/ 
 	color:#5D5B46; 
 	font:15px/18px Georgia, "Times New Roman", Times, serif;
-	background: -webkit-gradient(linear, 0 0, 50% 70%, from(#0317C4), to(#fff));
+	background: -webkit-gradient(linear, 0 0, 30% 70%, from(#0317C4), to(#fff));
 	background: -moz-linear-gradient(#0317C4, #fff);
 	background: -o-linear-gradient(#0317C4, #fff);
 	background: linear-gradient(#0317C4, #fff);
@@ -19,7 +20,7 @@ a.visited{color:#000;text-decoration:none;}
 	width:1024px; 
 	height:auto;
 	position:relative;
-	top:0px;
+	/*top:0px;*/
 	padding:0; 
 	margin:0 auto; 
 	}
@@ -791,7 +792,7 @@ ul#cssMenu a:hover ul{
 	
 	
 	}
-#tile-full{
+#staff_left{
 	display:block;
 	
 	color: #000;
@@ -806,14 +807,14 @@ ul#cssMenu a:hover ul{
 	opacity:0.8;
 	box-shadow: inset 0px 0px 0px 1px #ccc6d0, 0 1px 3px #000;
 	}
-#tile-full ol{
+#staff_left ol{
 	padding:0;
 	padding-left:30;
 	margin:0;
 	color: #000;
 	list-style:decimal;	
 	}
-#tile-full-none{
+#staff_left-none{
 	display:block;
 	
 	color: #000;
@@ -825,7 +826,7 @@ ul#cssMenu a:hover ul{
 	padding:5px;
 	font: 14px/20px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	}
-#tile-full-none ol{
+#staff_left-none ol{
 	padding:0;
 	padding-left:30;
 	margin:0;
@@ -1039,7 +1040,7 @@ ul#cssMenu a:hover ul{
 	/*border:1px dotted #000;*/
 	position:absolute;
 	top:173;
-	left:158;
+	left:161;
 	width:170;
 	z-index:52;
 	}
@@ -1072,7 +1073,7 @@ ul#cssMenu a:hover ul{
 	/*border:1px dotted #000;*/
 	position:absolute;
 	top:173;
-	left:321;
+	left:325;
 	width:170;
 	z-index:52;
 	}

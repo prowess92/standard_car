@@ -12,7 +12,7 @@ $username = $_SESSION['username'];
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>BICO MALAWI</title>
+<title>SB ~ new user</title>
 <link rel="icon" href="../image/bico_icon.ico" type="image/x-icon" />
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" charset="utf-8" />
@@ -112,6 +112,16 @@ form input[type="password"]{width:300;}
 							} ?>
     </label>
     <input type="text" name="sname" />
+    <label>Phone number:&nbsp;<?php if(isset($_SESSION['phone'])){
+							echo $_SESSION['phone'];
+							unset($_SESSION['phone']);
+							} ?></label>
+    <input type="text" name="phone" value="<?php echo $_SESSION['value_phone']; unset($_SESSION['value_phone']); ?>" />
+    <label>email address:&nbsp;<?php if(isset($_SESSION['email'])){
+							echo $_SESSION['email'];
+							unset($_SESSION['email']);
+							} ?></label>
+    <input type="text" name="email" value="<?php echo $_SESSION['value_email']; unset($_SESSION['value_email']); ?>" />
     <label>user role:&nbsp;
     <?php if(isset($_SESSION['role'])){
 							echo $_SESSION['role'];
@@ -122,6 +132,7 @@ form input[type="password"]{width:300;}
     <option>click to select user role</option>
     <option value="admin">admin</option>
     <option value="driver">driver</option>
+    <option value="staff">other</option>
     </select>
 
     <label>Password:&nbsp;
