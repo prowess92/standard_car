@@ -12,8 +12,10 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 
 	if ($_SESSION['privileges'] == "admin"){
 	$q="SELECT * FROM `bookings` ORDER BY `date_use` DESC ";
-	}else{
+	}else if ($_SESSION['privileges'] == "staff"){
 	$q="SELECT * FROM `bookings` WHERE `created_by` = '$current_user' ORDER BY `date_use` DESC ";
+	}else if ($_SESSION['privileges'] == "driver"){
+	$q="SELECT * FROM `bookings` WHERE `driver_id` = '$current_user' ORDER BY `date_use` DESC ";
 	}
 	$r=mysql_query($q,$connect);
 	while($s=mysql_fetch_array($r)){ 
