@@ -23,7 +23,7 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 		$a="SELECT * FROM district WHERE `district_id` = '$district_id' ";
 		$b=mysql_query($a,$connect);
 		$c=mysql_fetch_array($b);
-		echo "<li><a id='booking_".$s['booking_id']."' href='#'>Going to ".$c['name'].";&nbsp;".$s['loc_desc']."</a></li>";          
+		echo "<li><a id='booking_".$s['booking_id']."' href='#'>Trip to ".$c['name'].";&nbsp;".$s['loc_desc']."</a></li>";          
 ?>
 		<script>
 		$(document).ready(function(){

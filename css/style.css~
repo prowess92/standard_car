@@ -1271,6 +1271,17 @@ ul#cssMenu a:hover ul{
 	z-index:10;
 	}
 #options span a:active{box-shadow:none;}
+#notifier{
+        position:absolute;
+	display:block;
+	left:520;
+	width:470;
+	border:2px groove #808080;
+	height:400;
+	overflow:hidden;
+	border-radius:7px;
+	background:#f8f8fd;
+	}
 #avail_cars{
 	overflow:auto;
 	}

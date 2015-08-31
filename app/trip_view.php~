@@ -81,6 +81,7 @@ function ShowDate($date)
 
 	echo "<span id ='box'style='color:#3f4fd2;text-align:center'> The trip is for ".$c['name']." and the exact location is ".$s['loc_desc']."</span>";
 	echo "<span id='box' style='text-align:center'>Vehicle to be used</br><span style='color:#3f4fd2;'>".$l['make']."&nbsp;".$l['model']."&nbsp;with registration number:&nbsp;".$l['reg_num']."</span></span>";
+	echo "<span id='box'>Number of people travelling:&nbsp;<span style='color:#3f4fd2;text-align:right'>".$s['personnel_num']."</span></span>";
 	echo "<span id='box'>Date of use:&nbsp;<span style='color:#3f4fd2;text-align:right'>".ShowDate($s['date_use'])."</span></span>";
 	echo "<span id='box'>Date of return:&nbsp;<span style='color:#3f4fd2;text-align:right'>".ShowDate($s['date_return'])."</span></span>";
 	if ($_SESSION['privileges'] == "admin" || $_SESSION['privileges'] == "staff"){

@@ -473,7 +473,8 @@ if ($_SESSION['privileges'] == "admin"){
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span><a href="#" id="menu_users"><img src="../image/user_icon.png" alt='User cars_list' /></a></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+</div>
+<div id="notifier">
 </div>
 </div>
 </div>
