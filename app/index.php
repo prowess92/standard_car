@@ -153,6 +153,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 				$("#menu_booking").css("z-index", "51");
 				$("#staff_left").hide();
 				$("#staff_right").hide();
+				$('#booking_close').hide();
 				$("#menu_booking").click(function(){
 					$("#options_blinder").hide();
 					$("#menu_booking_list").hide();
