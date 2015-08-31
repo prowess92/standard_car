@@ -4,7 +4,7 @@ body{
 	margin:0px; 
 	padding:0px; 
 	/*padding-bottom:40px;*/
-	background:#0317C4;
+	background:#fff;
 	/*margin-bottom:40px;*/ 
 	color:#5D5B46; 
 	font:15px/18px Georgia, "Times New Roman", Times, serif;
@@ -792,7 +792,7 @@ ul#cssMenu a:hover ul{
 	
 	
 	}
-#staff_left{
+#tile-full{
 	display:block;
 	
 	color: #000;
@@ -807,14 +807,14 @@ ul#cssMenu a:hover ul{
 	opacity:0.8;
 	box-shadow: inset 0px 0px 0px 1px #ccc6d0, 0 1px 3px #000;
 	}
-#staff_left ol{
+#tile-full ol{
 	padding:0;
 	padding-left:30;
 	margin:0;
 	color: #000;
 	list-style:decimal;	
 	}
-#staff_left-none{
+#tile-full-none{
 	display:block;
 	
 	color: #000;
@@ -826,7 +826,7 @@ ul#cssMenu a:hover ul{
 	padding:5px;
 	font: 14px/20px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	}
-#staff_left-none ol{
+#tile-full-none ol{
 	padding:0;
 	padding-left:30;
 	margin:0;
