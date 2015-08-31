@@ -422,7 +422,7 @@ if ($_SESSION['privileges'] != "driver"){
 ?>
 <span><a href="add_booking_view.php">book a car</a></span>
 <?php }else{ ?>
-<span><a href="add_booking_view.php">assigned bookings</a></span>
+<span><a id="staff_booking" href="#">assigned bookings</a></span>
 <?php 
 }
 if ($_SESSION['privileges'] == "admin"){

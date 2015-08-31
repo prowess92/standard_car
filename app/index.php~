@@ -153,6 +153,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 				$("#menu_booking").css("z-index", "51");
 				$("#staff_left").hide();
 				$("#staff_right").hide();
+				$('#booking_close').hide();
 				$("#menu_booking").click(function(){
 					$("#options_blinder").hide();
 					$("#menu_booking_list").hide();
@@ -421,7 +422,7 @@ if ($_SESSION['privileges'] != "driver"){
 ?>
 <span><a href="add_booking_view.php">book a car</a></span>
 <?php }else{ ?>
-<span><a href="add_booking_view.php">assigned bookings</a></span>
+<span><a id="staff_booking" href="#">assigned bookings</a></span>
 <?php 
 }
 if ($_SESSION['privileges'] == "admin"){
