@@ -47,6 +47,8 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
             
             $("#noti_close").click(function(){
                 $("#options_blinder").css("z-index", "50");
+                $("#staff_left").css("width", "450");
+                $('#staff_left').html('').load('bookings_moi.php')
 				$("#staff_left").hide();
                 $('#noti_close').hide();
 				$("#options_blinder").hide();
