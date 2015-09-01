@@ -1272,15 +1272,34 @@ ul#cssMenu a:hover ul{
 	}
 #options span a:active{box-shadow:none;}
 #notifier{
+	padding-left:15;
+	margin:0;
         position:absolute;
 	display:block;
-	left:520;
-	width:470;
+	top:115;
+	left:510;
+	width:465;
 	border:2px groove #808080;
-	height:400;
+	height:360;
 	overflow:hidden;
 	border-radius:7px;
 	background:#f8f8fd;
+	}
+#notifier_header{
+	padding-left:15;
+	margin:0;
+        position:absolute;
+	display:block;
+	left:510;
+	width:465;
+	border:2px groove #808080;
+	height:30;
+	overflow:hidden;
+	border-radius:3px;
+	background:#f8f8fd;
+	}
+#notifier_header h3{
+	text-align:center;
 	}
 #avail_cars{
 	overflow:auto;

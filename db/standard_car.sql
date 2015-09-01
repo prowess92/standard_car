@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2015 at 08:54 PM
+-- Generation Time: Sep 01, 2015 at 01:15 PM
 -- Server version: 5.6.25-0ubuntu0.15.04.1
 -- PHP Version: 5.6.4-4ubuntu6.2
 
@@ -40,14 +40,20 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`booking_id`, `created_by`, `car_id`, `district_id`, `loc_desc`, `personnel_num`, `driver_id`, `date_use`, `date_return`, `status`, `created_at`, `updated_at`, `updated_by`) VALUES
-(16, 18, 13, 2, 'kaya', 10, 15, '2015-10-11 00:00:00', '2015-10-14 00:00:00', 'pending', '2015-08-31 17:33:02', '2015-08-31 17:33:02', 18);
+(16, 18, 13, 2, 'kaya', 10, 15, '2015-10-11 00:00:00', '2015-10-14 00:00:00', 'pending', '2015-08-31 17:33:02', '2015-08-31 17:33:02', 18),
+(17, 17, 10, 28, 'Area 25, kanengo', 2, 15, '2015-09-05 00:00:00', '2015-09-07 00:00:00', 'pending', '2015-09-01 07:02:56', '2015-09-01 07:02:56', 17),
+(18, 17, 8, 20, 'Chipata', 13, 15, '2015-10-10 00:00:00', '2015-10-12 00:00:00', 'pending', '2015-09-01 07:04:54', '2015-09-01 07:04:54', 17),
+(19, 17, 8, 18, 'Ngwangwa', 15, 15, '2015-09-13 00:00:00', '2015-09-17 00:00:00', 'pending', '2015-09-01 08:45:02', '2015-09-01 08:45:02', 17),
+(20, 11, 11, 23, 'Pottery', 4, 16, '2015-11-16 00:00:00', '2015-11-19 00:00:00', 'pending', '2015-09-01 08:57:22', '2015-09-01 08:57:22', 11),
+(21, 11, 9, 21, 'Kaning&#8217;ina', 2, 15, '2015-10-01 00:00:00', '2015-10-06 00:00:00', 'pending', '2015-09-01 09:22:57', '2015-09-01 09:22:57', 11),
+(22, 17, 13, 24, 'Chitakale', 2, 16, '2015-09-02 00:00:00', '2015-09-04 00:00:00', 'pending', '2015-09-01 09:45:28', '2015-09-01 09:45:28', 17);
 
 -- --------------------------------------------------------
 
@@ -65,14 +71,23 @@ CREATE TABLE IF NOT EXISTS `bookings_log` (
   `checker` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bookings_log`
 --
 
 INSERT INTO `bookings_log` (`bookings_log_id`, `booking_id`, `duration`, `start_mileage`, `end_mileage`, `status`, `checker`, `created_at`, `updated_at`) VALUES
-(18, 16, 0, 0, 0, 'pending', '', '2015-08-31 17:33:02', '2015-08-31 17:33:02');
+(18, 16, 0, 0, 0, 'pending', '', '2015-08-31 17:33:02', '2015-08-31 17:33:02'),
+(19, 17, 0, 0, 0, 'pending', '', '2015-09-01 07:02:57', '2015-09-01 07:02:57'),
+(20, 18, 0, 0, 0, 'pending', '', '2015-09-01 07:04:54', '2015-09-01 07:04:54'),
+(21, 19, 0, 0, 0, 'pending', '', '2015-09-01 08:45:02', '2015-09-01 08:45:02'),
+(22, 0, 0, 0, 0, 'pending', '', '2015-09-01 08:55:31', '2015-09-01 08:55:31'),
+(23, 20, 0, 0, 0, 'pending', '', '2015-09-01 08:57:22', '2015-09-01 08:57:22'),
+(24, 0, 0, 0, 0, 'pending', '', '2015-09-01 09:15:07', '2015-09-01 09:15:07'),
+(25, 0, 0, 0, 0, 'pending', '', '2015-09-01 09:19:41', '2015-09-01 09:19:41'),
+(26, 21, 0, 0, 0, 'pending', '', '2015-09-01 09:22:57', '2015-09-01 09:22:57'),
+(27, 22, 0, 0, 0, 'pending', '', '2015-09-01 09:45:28', '2015-09-01 09:45:28');
 
 -- --------------------------------------------------------
 
@@ -424,7 +439,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
   `privileges` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -482,10 +497,10 @@ CREATE TABLE IF NOT EXISTS `user_log` (
 --
 
 INSERT INTO `user_log` (`log_id`, `username`, `times`, `last_login`) VALUES
-(1, 'admin', 214, '2015-08-31 20:23:31'),
-(12, 'frank.chisale', 4, '2015-08-31 20:51:06'),
+(1, 'admin', 216, '2015-09-01 13:07:57'),
+(12, 'frank.chisale', 5, '2015-08-31 20:56:44'),
 (13, 'jane.doe', 0, '0000-00-00 00:00:00'),
-(14, 'john.doe', 7, '2015-08-31 19:44:35'),
+(14, 'john.doe', 11, '2015-09-01 13:09:12'),
 (15, 'patrick.chikafa', 0, '0000-00-00 00:00:00');
 
 --
@@ -542,12 +557,12 @@ ALTER TABLE `user_log`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `bookings_log`
 --
 ALTER TABLE `bookings_log`
-MODIFY `bookings_log_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `bookings_log_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `cars`
 --
@@ -562,7 +577,7 @@ MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=292;
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `staff`
 --

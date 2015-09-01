@@ -294,6 +294,27 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
     	text-align: center;
 	}
 #booking_close a:active{border: 2px solid #3f4fd2;}
+#notifier ol{
+	position:relative;
+	display:block;
+	height:auto;
+	width:100%;
+	counter-reset: li;
+	list-style: none;
+	*list-style: decimal;
+
+	font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin-bottom: 4em;
+	}
+#notifier ol ol{
+	margin: 0 0 0 2em;
+	}
+#notifier ol li{
+	display:block;
+	height:20;
+	margin-top:20;
+	}
 #staff_left ol{
 	position:relative;
 	display:block;
@@ -474,7 +495,9 @@ if ($_SESSION['privileges'] == "admin"){
 <span><a href="#" id="menu_users"><img src="../image/user_icon.png" alt='User cars_list' /></a></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
+<div id="notifier_header"><h3>NOTIFICATIONS</h3></div>
 <div id="notifier">
+<?php require('bookings_not.php'); ?>
 </div>
 </div>
 </div>
