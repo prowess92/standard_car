@@ -38,8 +38,17 @@
             $car_id = $_POST['car_id'];
             $district = $_POST['district'];
             $creator = $_SESSION['id'];
+        
             
-            $loc_desc = htmlentities($_POST['loc_desc']);
+            $loc_desc_raw = $_POST['loc_desc'];
+            $loc_desc_raw = explode("'", $loc_desc_raw);
+            for ($i=0;$i<count($loc_desc_raw);$i++){
+                if($i == 0){
+                    $loc_desc = $loc_desc_raw[$i];
+                }else{
+                    $loc_desc = $loc_desc."&#8217;".$loc_desc_raw[$i];
+                }
+            }
             $driver = $_POST['driver'];
             $personel_num = $_POST['personnel'];
 			

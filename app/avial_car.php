@@ -29,7 +29,10 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
      $start_date = mktime('00', '00', '00', $_GET['month'], $_GET['day'], $_GET['year']);
      $start_date_final = date("Y-m-d H:i:s", $start_date);
      
-	$q="SELECT * FROM cars a  INNER JOIN bookings b ON b.car_id = a.car_id WHERE b.status = 'pending' and b.date_return < TIMESTAMP('$start_date_final') ORDER BY a.make";
+     $end_date = mktime('00', '00', '00', $_GET['Emonth'], $_GET['Eday'], $_GET['Eyear']);
+     $end_date_final = date("Y-m-d H:i:s", $end_date);
+     
+	$q="SELECT * FROM cars a  INNER JOIN bookings b ON b.car_id = a.car_id WHERE b.status = 'pending' and b.date_return < TIMESTAMP('$start_date_final') || b.date_use > TIMESTAMP('$end_date_final')  ORDER BY a.make";
 	$r=mysql_query($q,$connect);
     $query_length = mysql_num_rows($r);
     $counter = 0;

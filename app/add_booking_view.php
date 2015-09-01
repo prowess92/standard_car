@@ -41,13 +41,45 @@ $('#region').click(function(){
   });
 $('#end_year').click(function(){
 	$('#avail_cars').show();
+	$("#sdate").html('');
+	$("#sedate").html('');
 
 	var day   = $("select#start_day").val();
 	var month = $("select#start_month").val();
 	var year = $("select#start_year").val();
 
-	$('#avail_cars_list').html('').load('../app/avial_car.php?day=' + day + '&month=' + month + '&year=' + year);
+	var Eday   = $("select#end_day").val();
+	var Emonth = $("select#end_month").val();
+	var Eyear = $("select#end_year").val();
 
+	var start_date = new Date(year + '-' + month + '-' + day);
+	var end_date = new Date(Eyear + '-' + Emonth + '-' + Eday);
+
+	var dDiff = end_date - start_date;
+	
+	if (day =='' || month == '' || year == ''){
+		$("#sdate").html("select all fields for date of use");
+		
+		if (Eday =='' || Emonth == '' || Eyear == ''){
+		$("#edate").html("select all fields for return date");	
+		}	
+
+		return false;
+	}
+
+	if (Eday =='' || Emonth == '' || Eyear == ''){
+		$("#edate").html("select all fields for return date");	
+		return false;
+	}
+
+	if (end_date.getTime() < start_date.getTime()){
+		$("#edate").html("return date shouldnt be lower that date of use");	
+		return false;
+		}else{
+
+		$('#avail_cars_list').html('').load('../app/avial_car.php?day=' + day + '&month=' + month + '&year=' + year + '&Eyear=' + Eyear + '&Emonth=' + Emonth + '&Eday=' + Eday);
+	}
+		
 	});
 });
 </script>
@@ -190,7 +222,7 @@ $('#end_year').click(function(){
     </select>&nbsp;&nbsp;
     <input style="width:250;display:inline-block" type="text" name="personnel" value="<?php echo $_SESSION['value_personnel']; unset($_SESSION['value_personnel']); ?>" placeholder="number of people travelling here..."  />
     
-    <label>Requested Date of Use:&nbsp;<?php if(isset($_SESSION['date_use'])){
+    <label>Requested Date of Use:&nbsp;<span id="sdate" style="color:brown;"></span><?php if(isset($_SESSION['date_use'])){
 							echo $_SESSION['date_use'];
 							unset($_SESSION['date_use']);
 							} ?></label>
@@ -220,11 +252,11 @@ $('#end_year').click(function(){
 	}
     ?>
     </select>
-    <label>Expected Return Date:&nbsp;<?php if(isset($_SESSION['date_return'])){
+    <label>Expected Return Date:&nbsp;<span id="edate" style="color:brown;"></span><?php if(isset($_SESSION['date_return'])){
 							echo $_SESSION['date_return'];
 							unset($_SESSION['date_return']);
 							} ?></label>
-    <select name='end_day'>
+    <select id='end_day' name='end_day'>
     <option value=''>day</option>
     <?php
 	for ($i=1;$i<=31;$i++){
@@ -232,7 +264,7 @@ $('#end_year').click(function(){
 	}
     ?>
     </select>&nbsp;
-    <select name='end_month'>
+    <select id='end_month' name='end_month'>
     <option value=''>month</option>
     <?php
 	for ($i=1;$i<=12;$i++){
