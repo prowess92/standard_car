@@ -32,7 +32,8 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 		$("#index_cars_list").hide();
 		$("#staff_left").hide();
 		$("#staff_right").hide();
-		$("#booking_close").hide();		
+		$("#booking_close").hide();
+		 $('#noti_close').hide();		
 		
 	
 		/*user cars_list dropdown*/
@@ -260,6 +261,15 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 	width:97%;
 	font:17px/1 “helvetica neue”, helvetica, arial, sans-serif;
 	}
+#staff_left #box{
+	margin-top:20;
+	padding:5;
+	background: #F9F8FE;
+	border:1px dotted #0F0941;
+	display:block;
+	width:97%;
+	font:17px/1 “helvetica neue”, helvetica, arial, sans-serif;
+	}
 #car_close a{
 	position:absolute;
 	top:370;
@@ -294,6 +304,25 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
     	text-align: center;
 	}
 #booking_close a:active{border: 2px solid #3f4fd2;}
+#noti_close{
+	position:absolute;
+	top:440;
+	left:870;
+	z-index:700;
+	}
+#noti_close a{
+	position:relative;
+	display:block;
+	background-color: #fff;
+	border: 1px solid #3f4fd2;
+	border-radius: 5px;
+	padding: 3px 35px 3px 35px;
+    	text-decoration: none;
+    	color: #3f4fd2;
+    	font:13px Comic Sans MS, "cursive";
+    	text-align: center;
+	}
+#noti_close a:active{border: 2px solid #3f4fd2;}
 #notifier ol{
 	position:relative;
 	display:block;
@@ -406,6 +435,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
 <div id="container1"> 
 <div id="left-panel" style="width:990;">
 <div id="booking_close"><a href="#" >finish</a></div>
+<div id="noti_close"><a href="#" >finish</a></div>
 <div id="staff_left">
 <?php require('bookings_moi.php'); ?>
 </div>

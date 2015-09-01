@@ -1278,7 +1278,7 @@ ul#cssMenu a:hover ul{
 	display:block;
 	top:115;
 	left:510;
-	width:470;
+	width:465;
 	border:2px groove #808080;
 	height:360;
 	overflow:hidden;
@@ -1291,7 +1291,7 @@ ul#cssMenu a:hover ul{
         position:absolute;
 	display:block;
 	left:510;
-	width:470;
+	width:465;
 	border:2px groove #808080;
 	height:30;
 	overflow:hidden;

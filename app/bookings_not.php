@@ -25,15 +25,32 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 		$a="SELECT * FROM district WHERE `district_id` = '$district_id' ";
 		$b=mysql_query($a,$connect);
 		$c=mysql_fetch_array($b);
-		echo "<li><a id='booking_".$s['booking_id']."' href='#'>You are going to ".$c['name']." at ".$s['loc_desc']." tomorrow</a></li>";          
+		echo "<li><a id='not_".$s['booking_id']."' href='#'>You are going to ".$c['name']." at ".$s['loc_desc']." tomorrow</a></li>";   
+      
 ?>
 		<script>
 		$(document).ready(function(){
-			$('#booking_<?php echo $s["booking_id"]; ?>').click(function(){
-			$('#staff_left').html('').load('trip_view.php?id=<?php echo $s['booking_id']; ?>');
-			$('#staff_left').show();
-			return false;
+			$('#not_<?php echo $s["booking_id"]; ?>').click(function(){
+                $('#staff_left').css('width', '980px');    
+                $('#staff_left').html('').load('trip_view.php?id=<?php echo $s['booking_id']; ?>');
+                $("#options_blinder").css("left", "-20");
+                $("#options_blinder").css("z-index", "549");
+                $("#options_blinder").css("width","120%");
+                $("#options_blinder").css("height", "550");
+                $("#options_blinder").css("top","-30");
+                $("#options_blinder").css("opacity", "0.7");
+                $("#options_blinder").show();
+                $("#staff_left").show();
+                $('#noti_close').show();
+                return false;
 			});
+            
+            $("#noti_close").click(function(){
+                $("#options_blinder").css("z-index", "50");
+				$("#staff_left").hide();
+                $('#noti_close').hide();
+				$("#options_blinder").hide();
+                });
 		});
 		</script>
 <?php  		$trips_num++;
