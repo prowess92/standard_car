@@ -10,6 +10,10 @@ ini_set('upload_max_filesize', '60M');
 ini_set('max_execution_time', 600);
 ini_set('max_input_time', -1);
 
+//SESSION CONFIG
+session_set_cookie_params(86400);
+ini_set('session.gc_maxlifetime', 86400);
+
 //CONSTANT SERVER MACHINE
 define('DOMAIN','http://localhost/standar_car/');
 

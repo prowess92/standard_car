@@ -18,6 +18,7 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 	$q="SELECT * FROM `bookings` WHERE `driver_id` = '$current_user' ORDER BY `date_use` DESC ";
 	}
 	$r=mysql_query($q,$connect);
+	$trips_num = 0;
 	while($s=mysql_fetch_array($r)){ 
 		$district_id = $s['district_id'];
 		$a="SELECT * FROM district WHERE `district_id` = '$district_id' ";
@@ -34,8 +35,14 @@ $db = mysql_select_db(DB_NAME, $connect) or die('cant select database: '.mysql_e
 			});
 		});
 		</script>
-<?php  	
+<?php  		$trips_num++;
+		
 	}	 
  ?>
 </ol>
+<?php
+	if ($trips_num == 0){
+		echo '<h3 style="margin-top:-10">no available bookings</h3>';
+		}
+?>
 </div>
